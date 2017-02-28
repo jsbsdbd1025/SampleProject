@@ -3,10 +3,9 @@ package com.jiang.common.base;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
-import android.view.KeyEvent;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -23,7 +22,7 @@ import com.jiang.common.widget.LoadingDialog;
  * 其他：butterknife 在module中初始化不能用于app项目中
  */
 
-public abstract class CommonActivity extends FragmentActivity {
+public abstract class CommonActivity extends AppCompatActivity {
 
 
     public Context mContext;
@@ -31,8 +30,10 @@ public abstract class CommonActivity extends FragmentActivity {
     protected String TAG = null;
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        doBeforeSetcontentView();
+        mContext = this;
         TAG = getClass().getSimpleName();
     }
 
@@ -48,6 +49,18 @@ public abstract class CommonActivity extends FragmentActivity {
 //        SetTranslanteBar();
     }
 
+
+    @Override
+    public void startActivity(Intent intent) {
+        super.startActivity(intent);
+        overridePendingTransition(R.anim.aim_common_right_in, R.anim.aim_common_left_out);
+    }
+
+    @Override
+    public void startActivityForResult(Intent intent, int requestCode) {
+        super.startActivityForResult(intent, requestCode);
+        overridePendingTransition(R.anim.aim_common_right_in, R.anim.aim_common_left_out);
+    }
 
     /**
      * 通过Class跳转界面
@@ -69,6 +82,16 @@ public abstract class CommonActivity extends FragmentActivity {
         startActivityForResult(intent, requestCode);
     }
 
+    public void finishRight() {
+        super.finish();
+        overridePendingTransition(0, R.anim.aim_common_right_out);
+    }
+
+    public void finishLeft() {
+        finish();
+        overridePendingTransition(0, R.anim.aim_common_left_out);
+    }
+
     /**
      * 含有Bundle通过Class跳转界面
      **/
@@ -81,52 +104,6 @@ public abstract class CommonActivity extends FragmentActivity {
         startActivity(intent);
     }
 
-
-    /**
-     * activity动画的设置
-     */
-    @Override
-    public void startActivity(Intent intent) {
-        super.startActivity(intent);
-        overridePendingTransition(R.anim.aim_common_right_in,
-                R.anim.aim_common_left_out);
-    }
-
-
-    @Override
-    public void startActivityForResult(Intent intent, int requestCode) {
-        super.startActivityForResult(intent, requestCode);
-        overridePendingTransition(R.anim.aim_common_right_in,
-                R.anim.aim_common_left_out);
-    }
-
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition(R.anim.aim_common_left_in,
-                R.anim.aim_common_right_out);
-    }
-
-    public void finishByDown() {
-        finish();
-        overridePendingTransition(R.anim.aim_common_up_in,
-                R.anim.aim_common_down_out);
-    }
-
-    public void finishByRight() {
-        finish();
-        overridePendingTransition(R.anim.aim_common_left_in,
-                R.anim.aim_common_right_out);
-    }
-
-    /*@Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK
-                && event.getRepeatCount() == 0) {
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }*/
     protected void setComponet() {
     }
 

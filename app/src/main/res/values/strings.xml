@@ -1,5 +1,14 @@
 <resources>
-    <string name="app_name">大启学堂专家版</string>
+    <string name="app_name">Sample</string>
 
     <string name="splash_content">这是splash页,是应用的第一页</string>
+
+    <!--main_bottom_txt-->
+    <string name="main_bottom_home">首页</string>
+    <string name="main_bottom_find">业务</string>
+    <string name="main_bottom_msg">消息</string>
+    <string name="main_bottom_me">我</string>
+
+    <!--Title-->
+    <string name="title_home">首页</string>
 </resources>

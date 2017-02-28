@@ -5,6 +5,7 @@ import android.os.Handler;
 import com.jiang.common.utils.AppManager;
 import com.jiang.sampleproject.R;
 import com.jiang.sampleproject.base.BaseActivity;
+import com.jiang.sampleproject.ui.main.MainActivity;
 
 /**
  * 在appTheme中将 windowIsTranslucent 参数设置为true
@@ -40,8 +41,7 @@ public class SplashActivity extends BaseActivity {
      */
 
     private void doNext() {
-        GuideActivity.startAction(this);
-        AppManager.getAppManager().finishActivity();
+        MainActivity.startAction(this);
     }
 
     @Override

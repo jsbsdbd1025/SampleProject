@@ -8,14 +8,17 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.jiang.common.base.CommonActivity;
+import com.jiang.common.utils.AppManager;
 import com.jiang.common.widget.GuideView;
 import com.jiang.sampleproject.R;
 import com.jiang.sampleproject.base.BaseActivity;
+import com.jiang.sampleproject.ui.main.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * Created by jiang on 2017/2/28.
@@ -34,7 +37,6 @@ public class GuideActivity extends BaseActivity implements ViewPager.OnPageChang
     @BindView(R.id.ly_dot_group)
     LinearLayout dotGroup;
 
-
     /**
      * 统一跳转入口
      *
@@ -43,6 +45,7 @@ public class GuideActivity extends BaseActivity implements ViewPager.OnPageChang
     public static void startAction(CommonActivity activity) {
         Intent intent = new Intent(activity, GuideActivity.class);
         activity.startActivity(intent);
+        AppManager.getAppManager().finishActivity();
     }
 
     @Override
@@ -85,6 +88,11 @@ public class GuideActivity extends BaseActivity implements ViewPager.OnPageChang
             dotGroup.addView(view, layoutParams);
         }
 
+    }
+
+    @OnClick(R.id.btn_start)
+    void displayHone() {
+        MainActivity.startAction(this);
     }
 
     PagerAdapter pagerAdapter = new PagerAdapter() {

@@ -1,6 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.jiang.sampleproject">
 
+
+    <supports-screens
+            android:anyDensity="true"
+            android:largeScreens="true"
+            android:normalScreens="true"
+            android:smallScreens="true" />
+
+
     <application
             android:name=".app.SampleApplication"
             android:allowBackup="true"
@@ -20,6 +28,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.splash.GuideActivity" />
+        <activity android:name=".ui.main.MainActivity" />
 
     </application>
 
