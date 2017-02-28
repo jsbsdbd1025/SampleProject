@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">大启学堂专家版</string>
+
+    <string name="splash_content">这是splash页,是应用的第一页</string>
+</resources>
