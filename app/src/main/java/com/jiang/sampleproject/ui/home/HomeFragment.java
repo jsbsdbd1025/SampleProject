@@ -1,7 +1,10 @@
 package com.jiang.sampleproject.ui.home;
 
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 
+import com.jiang.common.widget.CustomDialog;
 import com.jiang.common.widget.flashview.BannerBean;
 import com.jiang.common.widget.flashview.FlashView;
 import com.jiang.common.widget.flashview.listener.FlashViewListener;
@@ -46,6 +49,22 @@ public class HomeFragment extends BaseFragment {
 
             }
         });
+
+//        EditText editText = (EditText) LayoutInflater.from(mContext).inflate(R.layout.layout_edit_box, null);
+
+        final CustomDialog.Builder dialog = new CustomDialog.Builder(mContext, R.style.CustomDialog);
+        dialog.setTitle("备注详情")
+                .setMessage("Hello World!!")
+//                .setView(editText)
+                .setPositiveButton("本大王知道了", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                })
+//                .setNegativeButton("取消", null)
+                .create();
+        dialog.show();
     }
 
 }

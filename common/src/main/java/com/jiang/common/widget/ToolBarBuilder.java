@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.MenuRes;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -42,6 +43,11 @@ public class ToolBarBuilder {
         toolbar = (Toolbar) rootView;
         toolbar.setTitle("");
         tvTitle = (TextView) rootView.findViewById(R.id.toolbar_title);
+    }
+
+    public ToolBarBuilder setTitle(@StringRes int resId) {
+        setTitle(mContext.getText(resId));
+        return this;
     }
 
     public ToolBarBuilder setTitle(CharSequence title) {

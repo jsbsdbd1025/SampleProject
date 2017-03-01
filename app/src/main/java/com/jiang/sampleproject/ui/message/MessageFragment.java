@@ -1,12 +1,16 @@
 package com.jiang.sampleproject.ui.message;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.jiang.common.irecyclerview.IRecyclerView;
+import com.jiang.common.widget.CustomDialog;
 import com.jiang.common.widget.ToolBarBuilder;
 import com.jiang.sampleproject.R;
 import com.jiang.sampleproject.base.BaseFragment;
