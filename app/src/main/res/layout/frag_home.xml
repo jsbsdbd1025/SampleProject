@@ -5,11 +5,23 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-
-    <com.jiang.common.widget.flashview.FlashView
-            android:id="@+id/fv_home"
+    <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@android:color/black" />
+            android:layout_height="match_parent"
+            android:overScrollMode="never">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <com.jiang.common.widget.flashview.FlashView
+                    android:id="@+id/fv_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@android:color/black" />
+        </LinearLayout>
+    </ScrollView>
+
 
 </LinearLayout>

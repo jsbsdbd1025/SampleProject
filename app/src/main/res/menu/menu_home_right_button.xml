@@ -3,8 +3,7 @@
 
     <item
             android:id="@+id/menu_1"
-            android:icon="@drawable/ph_error"
-            android:title=""
+            android:title="保存"
             app:showAsAction="ifRoom" />
     <item
             android:id="@+id/menu_2"

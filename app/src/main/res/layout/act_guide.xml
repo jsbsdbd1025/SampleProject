@@ -18,7 +18,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="85dp"
             android:text="开始"
-            android:textColor="@color/main_color"
+            android:textColor="@color/txt_key_color"
             android:textSize="@dimen/txt_key_size" />
 
     <LinearLayout

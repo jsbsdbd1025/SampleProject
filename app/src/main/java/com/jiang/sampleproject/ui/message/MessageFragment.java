@@ -1,10 +1,13 @@
 package com.jiang.sampleproject.ui.message;
 
+import android.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.jiang.common.irecyclerview.IRecyclerView;
+import com.jiang.common.widget.ToolBarBuilder;
 import com.jiang.sampleproject.R;
 import com.jiang.sampleproject.base.BaseFragment;
 
@@ -24,6 +27,9 @@ public class MessageFragment extends BaseFragment implements Toolbar.OnMenuItemC
     @BindString(R.string.title_home)
     String strTitle;
 
+    @BindView(R.id.recyclerview)
+    IRecyclerView mRecyclerView;
+
     @Override
     public int getLayoutId() {
         return R.layout.frag_msg;
@@ -38,16 +44,16 @@ public class MessageFragment extends BaseFragment implements Toolbar.OnMenuItemC
     protected void init(View view) {
 
         setHasOptionsMenu(true);
-        tvTitle.setText(strTitle);
-        toolbar.setNavigationIcon(R.mipmap.sel_home_nor);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            }
-        });
-        toolbar.setTitle("");
-        toolbar.inflateMenu(R.menu.menu_home_right_button);
-        toolbar.setOnMenuItemClickListener(this);
+        new ToolBarBuilder(view)
+                .setTitle(strTitle)
+                .setNavigationIcon(R.mipmap.sel_home_nor)
+                .setNavigationOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                    }
+                })
+                .inflateMenu(R.menu.menu_home_right_button)
+                .setOnMenuItemClickListener(this);
     }
 
     @Override
